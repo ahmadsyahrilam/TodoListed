@@ -2,6 +2,7 @@ import React from "react";
 import TodoForm from "./TodoForm";
 import DisplayToDolisted from "./DisplayTodoListed";
 
+
 export default class TodoList extends React.Component {
 
     state = {
@@ -9,6 +10,7 @@ export default class TodoList extends React.Component {
         ShowTodo: 'all',
         MarkAsComplete: true,
     }
+
 
     addListedTodo = TodoListed => {
         // const newListedToDo = [TodoListed,...this.state.ListedTodo];
@@ -67,8 +69,8 @@ export default class TodoList extends React.Component {
             <div>
                 <TodoForm onSubmit={this.addListedTodo}/>
 
-                <div style={{fontWeight: 'bold', fontSize: '15px'}}>
-                    Number Of List To Do : {this.state.ListedTodo.filter(TodoListed => !TodoListed.completeToDo).length}
+                <div style={{fontWeight: 'bold', fontSize: '15px', marginTop: "2.5%",marginBottom: "2.5%", borderBottom: "double"}}>
+                    Number Of List To Do :   {this.state.ListedTodo.filter(TodoListed => !TodoListed.completeToDo).length}
                 </div> 
 
                 {/* <div>
@@ -95,13 +97,15 @@ export default class TodoList extends React.Component {
                 />
                 ))}
 
-                {/* {this.state.ListedTodo.some(TodoListed => TodoListed.completeToDo) ? (
+                {this.state.ListedTodo.some(TodoListed => TodoListed.completeToDo) ? (
                     <div>
-                        <button onClick={this.removeAllCompletedTodo}> Remove Completed To Do </button>
+                        <button 
+                            style={{ fontSize: '15px', fontWeight: 'bold', height: '25px', width:'20%', borderRadius: '10px', backgroundColor: 'white', marginTop: "2.5%"}}
+                            onClick={this.removeAllCompletedTodo}> Remove Completed To Do </button>
                     </div>
                 ) : null}
 
-                <div 
+                {/* <div 
                     onClick={() => this.setState({
                         ListedTodo: this.state.ListedTodo.map(TodoListed => ({
                             ...TodoListed,
